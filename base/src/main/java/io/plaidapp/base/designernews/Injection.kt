@@ -24,6 +24,7 @@ import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import io.plaidapp.base.BuildConfig
 import io.plaidapp.base.data.api.DenvelopingConverter
+import io.plaidapp.base.designernews.data.api.DesignerNewsCommentsRepository
 import io.plaidapp.base.designernews.data.api.DesignerNewsRepository
 import io.plaidapp.base.designernews.data.api.ClientAuthInterceptor
 import io.plaidapp.base.designernews.data.api.DesignerNewsAuthTokenLocalDataSource
