@@ -29,6 +29,9 @@ import io.plaidapp.base.designernews.data.api.DesignerNewsRepository
 import io.plaidapp.base.designernews.data.api.ClientAuthInterceptor
 import io.plaidapp.base.designernews.data.api.DesignerNewsAuthTokenLocalDataSource
 import io.plaidapp.base.designernews.data.api.DesignerNewsService
+import io.plaidapp.base.designernews.data.api.comments.DesignerNewsCommentsRemoteDataSource
+import io.plaidapp.base.designernews.data.api.comments.DesignerNewsCommentsRepository
+import io.plaidapp.base.designernews.login.data.DesignerNewsLoginLocalStorage
 import io.plaidapp.base.designernews.login.data.DesignerNewsLoginLocalDataSource
 import io.plaidapp.base.designernews.login.data.DesignerNewsLoginRemoteDataSource
 import io.plaidapp.base.designernews.login.data.DesignerNewsLoginRepository
@@ -116,6 +119,9 @@ fun provideDesignerNewsRepository(service: DesignerNewsService): io.plaidapp.bas
     return io.plaidapp.base.designernews.data.api.DesignerNewsRepository.getInstance(service)
 }
 
-fun provideDesignerNewsCommentsRepository(): DesignerNewsCommentsRepository {
-    return DesignerNewsCommentsRepository.getInstance(provideDesignerNewsService())
-}
+fun provideDesignerNewsCommentsRepository() =
+        DesignerNewsCommentsRepository.getInstance(provideDesignerNewsCommentsRemoteDataSource())
+
+
+fun provideDesignerNewsCommentsRemoteDataSource() =
+        DesignerNewsCommentsRemoteDataSource.getInstance(provideDesignerNewsService())
