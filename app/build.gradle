@@ -63,9 +63,3 @@ dependencies {
     api project(':bypass')
     implementation project(':search')
 }
-
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
-}
